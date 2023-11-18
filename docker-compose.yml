@@ -1,0 +1,28 @@
+version: "2"
+
+services:
+  postgres-db:
+    image: postgres:14.1-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=khanh123
+      - POSTGRES_DB=tech-practice
+    volumes:
+      - ./data-load/database-init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
+
+  auth-service:
+    image: auth-service-0.0.1
+    build:
+      context: auth-service
+      dockerfile: ./Dockerfile
+    ports:
+      - "8080:8080"
+      - "5005:5005"
+    entrypoint: [ "java","-agentlib:jdwp=transport=dt_socket,address=*:5005,server=y,suspend=n","-jar","auth-service.jar" ]
+    environment:
+      - spring.datasource.url=jdbc:postgresql://postgres-db:5432/tech-practice
+    depends_on:
+      - postgres-db
