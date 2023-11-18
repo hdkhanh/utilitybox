@@ -23,3 +23,5 @@
 hs_err_pid*
 replay_pid*
 /.idea/
+/application-ui/node_modules/
+/application-ui/.env
