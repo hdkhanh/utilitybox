@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+.utilitybox-application-definitions {
+    .utilitybox-application-definition {
+        width: 400px;
+        margin: 20px;
+
+        .utilitybox-application-header {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .utilitybox-application-description {
+            text-align: justify;
+        }
+    }
+}

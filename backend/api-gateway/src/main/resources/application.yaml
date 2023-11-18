@@ -1,0 +1,44 @@
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+    config-url: /v3/api-docs/swagger-config
+    urls:
+      - url: /v3/api-docs
+        name: API Gateway Service
+      - url: /auth-service/v3/api-docs
+        name: Auth Service
+      - url: /app-service/v3/api-docs
+        name: Application Service
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+
+jwt:
+  secret: utilitybox1Practice2Jwt3Secret4utilitybox1Practice2Jwt3Secret4
+  expiration: 3600000
+
+application:
+  uis:
+    home: http://localhost:3000
+  services:
+    auth: lb://AUTH-SERVICE
+    app: lb://APP-SERVICE

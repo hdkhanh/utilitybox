@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: auth-service
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/utilitybox
+    username: admin
+    password: khanh123
+
+server:
+  port: 8081
+  servlet:
+    context-path: /
+
+openapi:
+  service:
+    title: auth-service doc
+    version: 1.0.0
+    url: http://localhost:8080
+springdoc:
+  api-docs:
+    path: /auth-service/v3/api-docs
+  swagger-ui:
+    path: /auth-service/swagger-ui.html
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+
+jwt:
+  secret: utilitybox1Practice2Jwt3Secret4utilitybox1Practice2Jwt3Secret4
+  expiration: 3600000
+  refresh-cookie-name: utilitybox-jwt-refresh
+  refresh-expiration: 7200000

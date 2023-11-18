@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: app-service
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/utilitybox
+    username: admin
+    password: khanh123
+
+server:
+  port: 8082
+  servlet:
+    context-path: /
+
+openapi:
+  service:
+    title: app-service doc
+    version: 1.0.0
+    url: http://localhost:8080
+springdoc:
+  api-docs:
+    path: /app-service/v3/api-docs
+  swagger-ui:
+    path: /app-service/swagger-ui.html
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka

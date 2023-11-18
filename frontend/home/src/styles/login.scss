@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+.utilitybox-login-form {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+
+    form {
+        margin-bottom: 0;
+    }
+
+    .utilitybox-login-form-content {
+        width: 300px;
+        border: 1px solid #c6ccd2;
+        border-radius: 2px;
+        padding: 20px;
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .utilitybox-login-form-action {
+        display: flex;
+        justify-content: center;
+    }
+}
