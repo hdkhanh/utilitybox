@@ -13,7 +13,7 @@ const DEFAULT_TEMPLATE = "./src/backend/api-client/openapi/templates";
 const DEFAULT_OUTPUT_FILE = "openapi-spec.json";
 
 const SPECS = [
-    { path: "/v3/api-docs/", name: "auth-service" },
+    { path: "/v3/api-docs", name: "auth-service" },
 ];
 
 const deleteExistSpec = async () => {
