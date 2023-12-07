@@ -21,6 +21,9 @@ public class ApplicationServiceImpl implements ApplicationService {
                         .name(it.getName())
                         .description(it.getDescription())
                         .createDate(it.getCreateDate())
+                        .remoteUrl(it.getRemoteUrl())
+                        .remoteScope(it.getRemoteScope())
+                        .remoteModule(it.getRemoteModule())
                         .build()
                 )
                 .collect(Collectors.toList());

@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+.utilitybox-json-formatter-container {
+    .row {
+        padding: 20px 0;
+    }
+
+    textarea,
+    pre {
+        max-width: none;
+        height: 100%;
+        padding: 10px 15px;
+        margin: 0;
+        resize: none;
+    }
+
+    .utilitybox-json-formatter-output {
+        position: relative;
+
+        button {
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 1;
+        }
+    }
+}

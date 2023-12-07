@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   eureka-server:
-    image: eureka-server:0.0.1
+    image: hdkhanh222/utilitybox_eureka-server:0.0.1
     build:
       context: backend/eureka-server
       dockerfile: ./Dockerfile
@@ -22,7 +22,7 @@ services:
       - "5432:5432"
 
   api-gateway:
-    image: api-gateway:0.0.1
+    image: hdkhanh222/utilitybox_api-gateway:0.0.1
     build:
       context: backend/api-gateway
       dockerfile: ./Dockerfile
@@ -40,7 +40,7 @@ services:
       - eureka-server
 
   auth-service:
-    image: auth-service:0.0.1
+    image: hdkhanh222/utilitybox_auth-service:0.0.1
     build:
       context: backend/auth-service
       dockerfile: ./Dockerfile
@@ -61,7 +61,7 @@ services:
       - eureka-server
 
   app-service:
-    image: app-service:0.0.1
+    image: hdkhanh222/utilitybox_app-service:0.0.1
     build:
       context: backend/app-service
       dockerfile: ./Dockerfile
@@ -81,8 +81,17 @@ services:
     links:
       - eureka-server
 
+#  Recommend using the S3 package
+#  json-formatter:
+#    image: hdkhanh222/utilitybox_json-formatter:0.0.1
+#    build:
+#      context: frontend/json-formatter
+#      dockerfile: ./Dockerfile
+#    ports:
+#      - "3002:3002"
+
   home:
-    image: home:0.0.1
+    image: hdkhanh222/utilitybox_home:0.0.1
     build:
       context: frontend/home
       dockerfile: ./Dockerfile

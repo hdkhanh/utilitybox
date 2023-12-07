@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const fs = require("fs");
 const path = require("path");
 const dotenv = require("dotenv");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
@@ -36,41 +35,22 @@ const scssRules = [
 ];
 
 module.exports = function getWebpackConfig(env) {
-    const mode = env.mode ? "production" : "development";
-    const backend = env.backend ?? "http://localhost:8080";
-    const port = env.port ?? "3001";
+    const mode = env.mode ? env.mode : "development";
+    const port = env.port ?? "3002";
 
     return {
         entry: "./src/index.ts",
-        mode,
         output: {
-            publicPath: `/`,
-            filename: "[name].js",
-            // publicPath: "auto",
+            publicPath: "auto",
         },
+        mode,
         devServer: {
             port,
             open: false,
             headers: {
                 "Access-Control-Allow-Origin": "*",
             },
-            // http2: true,
-            // https: {
-            //     key: fs.readFileSync("cert/server.key"),
-            //     cert: fs.readFileSync("cert/server.crt"),
-            // },
             historyApiFallback: true,
-            proxy: {
-                "/api": {
-                    changeOrigin: true,
-                    cookieDomainRewrite: "localhost",
-                    secure: false,
-                    target: backend,
-                    headers: {
-                        host: backend,
-                    },
-                },
-            },
         },
         module: {
             rules: [
@@ -92,9 +72,6 @@ module.exports = function getWebpackConfig(env) {
         resolve: {
             extensions: [".js", ".jsx", ".ts", ".tsx", ".scss", ".json"],
             mainFields: ["module", "browser", "main"],
-            fallback: {
-                path: require.resolve("path-browserify"),
-            },
         },
         plugins: [
             new HtmlWebpackPlugin({
@@ -104,9 +81,11 @@ module.exports = function getWebpackConfig(env) {
                 "process.env": JSON.stringify(dotenv.config().parsed),
             }),
             new ModuleFederationPlugin({
-                name: "home",
+                name: "jsonFormatter",
                 filename: "remoteEntry.js",
-                remotes: {},
+                exposes: {
+                    "./App": "./src/App.tsx",
+                },
                 shared: {
                     react: {
                         singleton: true,

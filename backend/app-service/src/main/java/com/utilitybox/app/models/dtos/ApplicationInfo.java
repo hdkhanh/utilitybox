@@ -15,4 +15,7 @@ public class ApplicationInfo {
     private String name;
     private String description;
     private Instant createDate;
+    private String remoteUrl;
+    private String remoteScope;
+    private String remoteModule;
 }

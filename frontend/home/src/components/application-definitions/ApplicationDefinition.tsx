@@ -25,9 +25,11 @@ const ApplicationDefinition: React.FC<IApplicationProps> = ({ app }) => {
             <Card className="utilitybox-application card">
                 <Card.Header className="utilitybox-application-header">
                     {app.name}
-                    <Button variant="light" onClick={showApplication}>
-                        <Fullscreen />
-                    </Button>
+                    {app.remoteInfo ? (
+                        <Button variant="light" onClick={showApplication}>
+                            <Fullscreen />
+                        </Button>
+                    ) : null}
                 </Card.Header>
                 <Card.Body>
                     <Card.Text className="utilitybox-application-description">{app.description}</Card.Text>

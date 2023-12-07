@@ -52,6 +52,15 @@
                     "createDate": {
                         "type": "string",
                         "format": "date-time"
+                    },
+                    "remoteUrl": {
+                        "type": "string"
+                    },
+                    "remoteScope": {
+                        "type": "string"
+                    },
+                    "remoteModule": {
+                        "type": "string"
                     }
                 }
             }

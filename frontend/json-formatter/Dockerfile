@@ -12,5 +12,5 @@ FROM nginx:1.21.6-alpine
 COPY --from=build-stage /build/dist /usr/share/nginx/html
 COPY --from=build-stage /build/nginx/nginx.conf /etc/nginx/nginx.conf
 
-EXPOSE 3000
+EXPOSE 3002
 CMD ["nginx", "-g", "daemon off;"]

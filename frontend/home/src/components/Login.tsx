@@ -5,7 +5,7 @@ import InputGroup from "react-bootstrap/InputGroup";
 import Button from "react-bootstrap/Button";
 import backendFactory from "../backend/BackendFactory";
 import { RouteConstants } from "../constants/RouteContants";
-import PageLoading from "./PageLoading";
+import LoadingMask from "../common/components/LoadingMask";
 
 const Login: React.FC = () => {
     const navigate = useNavigate();
@@ -79,7 +79,7 @@ const Login: React.FC = () => {
             </div>
         </div>
     ) : (
-        <PageLoading />
+        <LoadingMask />
     );
 };
 

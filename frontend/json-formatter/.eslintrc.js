@@ -42,7 +42,6 @@ module.exports = {
         "@typescript-eslint/ban-tslint-comment": "off",
         "@typescript-eslint/explicit-function-return-type": "off",
         "@typescript-eslint/no-floating-promises": "off",
-        "@typescript-eslint/no-non-null-assertion": "off",
         "react/no-deprecated": "off",
     }
 }

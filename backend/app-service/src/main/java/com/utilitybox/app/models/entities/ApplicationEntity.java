@@ -26,4 +26,13 @@ public class ApplicationEntity extends BaseEntity implements Serializable {
 
     @Column(name = "create_date")
     private Instant createDate;
+
+    @Column(name = "remote_url")
+    private String remoteUrl;
+
+    @Column(name = "remote_scope")
+    private String remoteScope;
+
+    @Column(name = "remote_module")
+    private String remoteModule;
 }

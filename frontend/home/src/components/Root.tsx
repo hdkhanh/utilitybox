@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { IBootstrapData } from "../common/models/BootstrapData";
-import { bootstrap } from "../bootstrap";
+import { bootstrap } from "../BootstrapService";
 import Header from "./Header";
 import BootstrapProvider from "./BootstrapProvider";
 import ApplicationDefinitions from "./application-definitions/ApplicationDefinitions";
-import PageLoading from "./PageLoading";
+import LoadingMask from "../common/components/LoadingMask";
 import ErrorBoundary from "./ErrorBoundary";
 
 const Root: React.FC = () => {
@@ -26,7 +26,7 @@ const Root: React.FC = () => {
             </ErrorBoundary>
         </div>
     ) : (
-        <PageLoading />
+        <LoadingMask />
     );
 };
 
