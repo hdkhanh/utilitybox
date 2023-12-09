@@ -3,9 +3,9 @@ spring:
     name: auth-service
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/utilitybox
-    username: admin
-    password: khanh123
+    url: jdbc:postgresql://${POSTGRES_HOST:localhost}:${POSTGRES_PORT:5432}/${POSTGRES_DB:utilitybox}
+    username: ${POSTGRES_USER:admin}
+    password: ${POSTGRES_PASSWORD:khanh123}
 
 server:
   port: 8081
@@ -16,7 +16,7 @@ openapi:
   service:
     title: auth-service doc
     version: 1.0.0
-    url: http://localhost:8080
+    url: http://${OPEN_API_HOST:localhost}:${OPEN_API_PORT:8080}
 springdoc:
   api-docs:
     path: /auth-service/v3/api-docs
@@ -24,9 +24,12 @@ springdoc:
     path: /auth-service/swagger-ui.html
 
 eureka:
+  instance:
+    prefer-ip-address: true
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka
+      fetchRegistry: false
+      defaultZone: http://${EUREKA_HOST:localhost}:${EUREKA_PORT:8761}/eureka
 
 jwt:
   secret: utilitybox1Practice2Jwt3Secret4utilitybox1Practice2Jwt3Secret4

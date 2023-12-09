@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.utilitybox.home.name }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Values.utilitybox.home.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.utilitybox.home.name }}
+    spec:
+      restartPolicy: Always
+      containers:
+        - name: {{ .Values.utilitybox.home.name }}
+          image: "{{ .Values.image.username }}/{{ .Values.utilitybox.home.image }}:{{ .Values.image.tag }}"
+          imagePullPolicy: Always
+          ports:
+            - name: http-home
+              containerPort: {{ .Values.utilitybox.home.port }}

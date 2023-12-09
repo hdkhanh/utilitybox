@@ -1,0 +1,41 @@
+# Default values for utilitybox-helm.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+image:
+  username: hdkhanh222
+  tag: 0.0.5
+
+utilitybox:
+  postgres:
+    name: utilitybox-postgres
+    image: utilitybox_postgres
+    username: admin
+    password: khanh123
+    database: utilitybox
+    port: 5432
+
+  eurekaServer:
+    name: utilitybox-eureka-server
+    image: utilitybox_eureka-server
+    port: 8761
+
+  apiGateway:
+    name: utilitybox-api-gateway
+    image: utilitybox_api-gateway
+    port: 8080
+    nodePort: 30000
+
+  authService:
+    name: utilitybox-auth-service
+    image: utilitybox_auth-service
+    port: 8081
+
+  appService:
+    name: utilitybox-app-service
+    image: utilitybox_app-service
+    port: 8082
+
+  home:
+    name: utilitybox-home
+    image: utilitybox_home
+    port: 3000

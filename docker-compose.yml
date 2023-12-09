@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   eureka-server:
-    image: hdkhanh222/utilitybox_eureka-server:0.0.1
+    image: hdkhanh222/utilitybox_eureka-server:0.0.5
     build:
       context: backend/eureka-server
       dockerfile: ./Dockerfile
@@ -10,19 +10,20 @@ services:
       - "8761:8761"
 
   postgres-db:
-    image: postgres:14.1-alpine
+    image: hdkhanh222/utilitybox_postgres:0.0.5
+    build:
+      context: postgres
+      dockerfile: ./Dockerfile
     restart: always
     environment:
       - POSTGRES_USER=admin
       - POSTGRES_PASSWORD=khanh123
       - POSTGRES_DB=utilitybox
-    volumes:
-      - ./backend/data-load/database-init.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
       - "5432:5432"
 
   api-gateway:
-    image: hdkhanh222/utilitybox_api-gateway:0.0.1
+    image: hdkhanh222/utilitybox_api-gateway:0.0.5
     build:
       context: backend/api-gateway
       dockerfile: ./Dockerfile
@@ -40,7 +41,7 @@ services:
       - eureka-server
 
   auth-service:
-    image: hdkhanh222/utilitybox_auth-service:0.0.1
+    image: hdkhanh222/utilitybox_auth-service:0.0.5
     build:
       context: backend/auth-service
       dockerfile: ./Dockerfile
@@ -61,7 +62,7 @@ services:
       - eureka-server
 
   app-service:
-    image: hdkhanh222/utilitybox_app-service:0.0.1
+    image: hdkhanh222/utilitybox_app-service:0.0.5
     build:
       context: backend/app-service
       dockerfile: ./Dockerfile
@@ -83,7 +84,7 @@ services:
 
 #  Recommend using the S3 package
 #  json-formatter:
-#    image: hdkhanh222/utilitybox_json-formatter:0.0.1
+#    image: hdkhanh222/utilitybox_json-formatter:0.0.5
 #    build:
 #      context: frontend/json-formatter
 #      dockerfile: ./Dockerfile
@@ -91,7 +92,7 @@ services:
 #      - "3002:3002"
 
   home:
-    image: hdkhanh222/utilitybox_home:0.0.1
+    image: hdkhanh222/utilitybox_home:0.0.5
     build:
       context: frontend/home
       dockerfile: ./Dockerfile

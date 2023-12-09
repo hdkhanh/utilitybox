@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.utilitybox.postgres.name }}
+  labels:
+    app: {{ .Values.utilitybox.postgres.name }}
+spec:
+  ports:
+    - port: {{ .Values.utilitybox.postgres.port }}
+  selector:
+    app: {{ .Values.utilitybox.postgres.name }}

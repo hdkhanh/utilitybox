@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.utilitybox.apiGateway.name }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Values.utilitybox.apiGateway.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.utilitybox.apiGateway.name }}
+    spec:
+      restartPolicy: Always
+      containers:
+        - name: {{ .Values.utilitybox.apiGateway.name }}
+          image: "{{ .Values.image.username }}/{{ .Values.utilitybox.apiGateway.image }}:{{ .Values.image.tag }}"
+          imagePullPolicy: Always
+          ports:
+            - name: http-gateway
+              containerPort: {{ .Values.utilitybox.apiGateway.port }}
+              hostPort: {{ .Values.utilitybox.apiGateway.port }}
+          env:
+            - name: EUREKA_HOST
+              value: {{ .Values.utilitybox.eurekaServer.name }}.default
+            - name: EUREKA_PORT
+              value: "{{ .Values.utilitybox.eurekaServer.port }}"
+            - name: HOME_HOST
+              value: {{ .Values.utilitybox.home.name }}.default
+            - name: HOME_PORT
+              value: "{{ .Values.utilitybox.home.port }}"

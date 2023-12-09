@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.utilitybox.eurekaServer.name }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Values.utilitybox.eurekaServer.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.utilitybox.eurekaServer.name }}
+    spec:
+      containers:
+        - name: {{ .Values.utilitybox.eurekaServer.name }}
+          image: "{{ .Values.image.username }}/{{ .Values.utilitybox.eurekaServer.image }}:{{ .Values.image.tag }}"
+          imagePullPolicy: Always
+          ports:
+            - name: http-eureka
+              containerPort: {{ .Values.utilitybox.eurekaServer.port }}
+              hostPort: {{ .Values.utilitybox.eurekaServer.port }}

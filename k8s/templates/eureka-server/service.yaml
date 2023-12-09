@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.utilitybox.eurekaServer.name }}
+spec:
+  ports:
+    - name: http-eureka
+      port: {{ .Values.utilitybox.eurekaServer.port }}
+      targetPort: {{ .Values.utilitybox.eurekaServer.port }}
+      protocol: TCP
+  selector:
+    app: {{ .Values.utilitybox.eurekaServer.name }}

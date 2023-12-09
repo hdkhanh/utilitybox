@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.utilitybox.postgres.name }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Values.utilitybox.postgres.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.utilitybox.postgres.name }}
+    spec:
+      containers:
+        - name: {{ .Values.utilitybox.postgres.name }}
+          image: "{{ .Values.image.username }}/{{ .Values.utilitybox.postgres.image }}:{{ .Values.image.tag }}"
+          imagePullPolicy: "Always"
+          ports:
+            - containerPort: {{ .Values.utilitybox.postgres.port }}
+          env:
+            - name: POSTGRES_DB
+              value: {{ .Values.utilitybox.postgres.database }}
+            - name: POSTGRES_USER
+              value: {{ .Values.utilitybox.postgres.username }}
+            - name: POSTGRES_PASSWORD
+              value: {{ .Values.utilitybox.postgres.password }}
