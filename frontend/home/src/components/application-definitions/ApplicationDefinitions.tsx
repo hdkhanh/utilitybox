@@ -6,7 +6,7 @@ const ApplicationDefinitions: React.FC = () => {
     const { apps } = useBootstrap();
 
     return (
-        <div className="utilitybox-application-definitions d-flex justify-content-start">
+        <div className="utilitybox-application-definitions d-flex justify-content-start flex-wrap">
             {apps.map((app) => (
                 <div key={app.key} className={`utilitybox-application-definition application-${app.key}`}>
                     <ApplicationDefinition app={app} />

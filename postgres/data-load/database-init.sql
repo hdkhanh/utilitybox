@@ -45,11 +45,45 @@ VALUES
         'jsonFormatter',
         './App'
    ),
-   (
-        'Video Downloader',
-        'Effortlessly download your favorite videos from various online platforms with the Video Downloader app. Seamlessly navigate through a user-friendly interface that supports a wide range of video formats. Simply paste the video URL, choose your preferred quality, and let the application handle the rest. Enjoy the convenience of offline viewing by saving videos directly to your device. Stay organized with built-in history storage and easily manage your downloaded content. The Video Downloader is your go-to tool for hassle-free video access, providing a streamlined and efficient way to build your offline video library.',
+    (
+        'Regular Expression Tester',
+        'Perfect your regular expressions effortlessly with our tester. Quickly validate and fine-tune patterns, visualize matches, and troubleshoot with ease. Real-time feedback, match highlighting, and group extraction make crafting and debugging a breeze. Simplify your regex workflow with UtilityBox''s intuitive Regular Expression Tester.',
         null,
         null,
         null
-   );
-
+    ),
+    (
+        'Date and Time Utilities',
+        'Effortlessly manage date and time in your projects with UtilityBox''s Date and Time Utilities. Format, parse, and calculate dates with precision. Simplify time-related operations, handle different time zones, and ensure your applications run seamlessly with these essential tools. Streamline your date and time handling tasks efficiently in one central hub.',
+        null,
+        null,
+        null
+    ),
+    (
+        'HTTP Request Tester',
+        'Swiftly test and inspect HTTP requests with UtilityBox''s HTTP Request Tester. Easily make requests, examine responses, and debug your API interactions. Fine-tune headers, parameters, and payloads with a user-friendly interface. Accelerate your development workflow by ensuring seamless communication with servers using this essential tool.',
+        null,
+        null,
+        null
+    ),
+    (
+        'URL Encoder/Decoder',
+        'Simplify URL manipulation with UtilityBox''s URL Encoder/Decoder. Encode and decode URLs effortlessly, ensuring data integrity and compatibility. Easily handle special characters, query parameters, and ensure seamless communication between web applications. Streamline your URL-related tasks with this straightforward and efficient utility.',
+        null,
+        null,
+        null
+    ),
+    (
+        'Base64 Encoder/Decoder',
+        'Effortlessly encode and decode data with UtilityBox''s Base64 Encoder/Decoder. Convert text, images, or files to Base64 format and vice versa. This essential tool ensures data integrity and facilitates secure data transmission. Streamline your encoding and decoding tasks with this straightforward utility.',
+        null,
+        null,
+        null
+    ),
+    (
+        'IP Address Checker',
+        'Verify and analyze IP addresses effortlessly with UtilityBox''s IP Address Checker. Quickly determine the location, network provider, and other relevant details of a given IP address. Simplify network troubleshooting, security assessments, and geolocation tasks with this essential tool. Stay informed about the IPs interacting with your systems in real-time.',
+        null,
+        null,
+        null
+    );
