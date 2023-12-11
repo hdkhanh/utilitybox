@@ -12,6 +12,13 @@ server:
   servlet:
     context-path: /
 
+management:
+  endpoints:
+    web:
+      base-path: /auth-service/actuator
+      exposure:
+        include: "*"
+
 openapi:
   service:
     title: auth-service doc

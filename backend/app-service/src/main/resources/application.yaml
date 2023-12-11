@@ -12,11 +12,19 @@ server:
   servlet:
     context-path: /
 
+management:
+  endpoints:
+    web:
+      base-path: /auth-service/actuator
+      exposure:
+        include: "*"
+
 openapi:
   service:
     title: app-service doc
     version: 1.0.0
     url: http://${OPEN_API_HOST:localhost}:${OPEN_API_PORT:8080}
+
 springdoc:
   api-docs:
     path: /app-service/v3/api-docs

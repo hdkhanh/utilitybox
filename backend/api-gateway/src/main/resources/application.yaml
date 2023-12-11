@@ -12,6 +12,13 @@ server:
   servlet:
     context-path: /
 
+management:
+  endpoints:
+    web:
+      base-path: /api-gateway/actuator
+      exposure:
+        include: "*"
+
 springdoc:
   api-docs:
     enabled: true

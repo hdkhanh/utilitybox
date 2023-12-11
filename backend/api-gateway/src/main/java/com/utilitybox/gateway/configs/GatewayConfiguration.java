@@ -29,11 +29,11 @@ public class GatewayConfiguration {
                 .route(r -> r.path(ApiConstants.API_AUTH_PATTERN)
                         .filters(f -> f.filter(jwtAuthenticationFilter))
                         .uri(authServiceUri))
-                .route(r -> r.path(ApiConstants.AUTH_OPEN_API_URL).and().method(HttpMethod.GET).uri(authServiceUri))
+                .route(r -> r.path(ApiConstants.AUTH_SERVICE_PUBLIC_PATH_PATTERN).and().method(HttpMethod.GET).uri(authServiceUri))
                 .route(r -> r.path(ApiConstants.API_APPLICATION_PATTERN)
                         .filters(f -> f.filter(jwtAuthenticationFilter))
                         .uri(appServiceUri))
-                .route(r -> r.path(ApiConstants.APP_OPEN_API_URL).and().method(HttpMethod.GET).uri(appServiceUri))
+                .route(r -> r.path(ApiConstants.APP_SERVICE_PUBLIC_PATH_PATTERN).and().method(HttpMethod.GET).uri(appServiceUri))
                 .route(r -> r.path("/**").uri(homeUIUri))
                 .build();
     }

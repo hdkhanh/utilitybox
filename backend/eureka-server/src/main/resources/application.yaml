@@ -1,8 +1,17 @@
 spring:
   application:
     name: eureka-server
+
 server:
   port: 8761
+
+management:
+  endpoints:
+    web:
+      base-path: /eureka-server/actuator
+      exposure:
+        include: "*"
+
 eureka:
   client:
     fetchRegistry: false
